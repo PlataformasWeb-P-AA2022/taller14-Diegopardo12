@@ -71,7 +71,7 @@
               <br>
                 <label for="propietario">Propietario</label>
                 <select v-model="departamentos.propietario">
-                            <option v-for="e in propietarioList" :key="e.url" :value="e.url">{{ e.nombre }} {{ e.apellido }} {{e.edad}} {{e.nacionalidad}}</option>
+                            <option v-for="e in propietarioList" :key="e.url" :value="e.url">{{ e.nombre }} {{ e.apellido }} </option>
                         </select>
             </div>
             <br>
@@ -92,8 +92,9 @@ export default {
                 num_cuartos: '',
                 num_banos: '',
                 valor_ali: '',
+                propietario:'',
             },
-            estudiantesList: [],
+            propietarioList: [],
             submitted: false
         }
     },
@@ -122,7 +123,7 @@ export default {
                         this.telefono
                     )
                     .then(response => {
-                        this.$router.push('/telefonos');
+                        this.$router.push('/departamentos');
                     })
             });
         }

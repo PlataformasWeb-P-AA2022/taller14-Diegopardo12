@@ -7,11 +7,11 @@
                     type="text"
                     class="form-control"
                     id="nombre"
-                    v-model="estudiante.nombre"
+                    v-model="propietario.nombre"
                     v-validate="'required'"
                     name="nombre"
                     placeholder="Ingrese nombre"
-                    :class="{'is-invalid': errors.has('estudiante.nombre') && submitted}">
+                    :class="{'is-invalid': errors.has('propietario.nombre') && submitted}">
                 <div class="invalid-feedback">
                     Please provide a valid name.
                 </div>
@@ -23,10 +23,10 @@
                     class="form-control"
                     id="apellido"
                     v-validate="'required'"
-                    v-model="estudiante.apellido"
+                    v-model="propietario.apellido"
                     cols="30"
                     rows="2"
-                    :class="{'is-invalid': errors.has('estudiante.apellido') && submitted}">
+                    :class="{'is-invalid': errors.has('propietario.apellido') && submitted}">
                   </textarea>
                 <div class="invalid-feedback">
                     Please provide a valid description.
@@ -42,18 +42,17 @@ import axios from 'axios';
 export default {
     data() {
         return {
-            estudiante: {
+            propietario: {
                 nombre: '',
                 apellido: '',
-                cedula: '',
-                correo: '',
-                url: '',
+                edad: '',
+                nacionalidad: '',
             },
             submitted: false
         }
     },
     mounted() {
-        axios.get('http://127.0.0.1:8000/api/estudiantes/' + this.$route.params.id + '/')
+        axios.get('http://127.0.0.1:8000/api/propietario/' + this.$route.params.id + '/')
             .then( response => {
                 console.log(response.data)
                 this.estudiante = response.data
@@ -66,8 +65,8 @@ export default {
                 if (!result) {
                     return;
                 }
-                axios.put(`http://127.0.0.1:8000/api/estudiantes/${this.estudiante.id}/`,
-                        this.estudiante
+                axios.put(`http://127.0.0.1:8000/api/propietario/${this.propietario.id}/`,
+                        this.propietario
                     )
                     .then(response => {
                         this.$router.push('/');

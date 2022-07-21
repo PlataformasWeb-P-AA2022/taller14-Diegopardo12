@@ -25,9 +25,9 @@ export default new Router({
       component: () => import("./components/Index.vue")
     },
     {
-      path: "/telefonos",
-      name: "telefonos",
-      component: () => import("./components/TelefonosList.vue")
+      path: "/departamentos",
+      name: "departamentos",
+      component: () => import("./components/DepartamentosList.vue")
     },
     {
       path: "/create_departamento",
@@ -35,8 +35,8 @@ export default new Router({
       component: () => import("./components/CreateDepartamento.vue")
     },
     {
-       path: "/edit_telefono/:id",
-       name: "edit_telefono",
+       path: "/edit_departamento/:id",
+       name: "edit_departamento",
        component: () => import("./components/EditDepartamento.vue")
      },
   ]
